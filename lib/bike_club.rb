@@ -49,5 +49,15 @@ class BikeClub
     list_of_bikers
   end
 
-  
+  def record_group_ride(ride)
+    result = Hash.new(0)
+    t = Time.new
+    result[:start_time] = t.min
+    result[:ride] = ride
+    result[:members] = bikers
+    result
+    require 'pry'; binding.pry
+  end
+
+
 end

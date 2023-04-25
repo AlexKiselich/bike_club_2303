@@ -108,9 +108,35 @@ RSpec.describe BikeClub do
   end
 
   describe '#iteration4' do
-    describe 'record_group_ride' do
-      it '' do
-       
+    describe '#record_group_ride' do
+      xit 'can records the times of the bikers for the rides they did' do
+        bike_club1 = BikeClub.new("Bikes on Bikes")
+        biker1 = Biker.new("Kenny", 30)
+        biker2 = Biker.new("Athena", 15)
+        ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+        ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
+
+        biker1.learn_terrain!(:gravel)
+        biker1.learn_terrain!(:hills)
+
+        biker2.learn_terrain!(:gravel)
+        biker2.learn_terrain!(:hills)
+
+        bike_club1.add_biker(biker1)
+        bike_club1.add_biker(biker2)
+
+        biker1.log_ride(ride1, 92.5)
+        biker2.log_ride(ride1, 97.0)
+
+        expected_result = {
+          start_time: Time.new,
+          ride: ride1,
+          members: [biker1, biker2]
+        }
+
+        expect(bike_club1.record_group_ride(ride1)).to eq(expected_result)
+
+
       end
     end
   end
