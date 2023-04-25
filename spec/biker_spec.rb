@@ -63,8 +63,8 @@ RSpec.describe Biker do
       end
     end
 
-    describe 'test'  do
-      it 'can test the add terrian method' do
+    describe '#log_ride part 2'  do
+      it 'can check to make sure the terrain is learned and max distance is larger ride distance ' do
         biker2 = Biker.new("Athena", 15)
         ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
         ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
